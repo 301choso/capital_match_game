@@ -3,3 +3,5 @@
 수도 맞추기 게임
 
 HTML, javascript, css 사용
+
+배포 : capitalmatchgame.netlify.app
