@@ -4,6 +4,36 @@ const result =  document.querySelector('#result');
 const arr=[0,0,0,0,0,0,0,0];
 const endpoint = arr.length;
 
+function resultAnswer(){
+  const resultName2 = document.querySelector('.resultname2');
+  /*
+  let table  = document.createElement('table');
+  let thead  = document.createElement('thead');
+  let tbody  = document.createElement('tbody');
+
+  table.appendChild(thead);
+  table.appendChild(tbody);
+
+  document.getElementById('body').appendChild(table);
+  let row_1 = document.createElement('tr');
+  let num = document.createElement('th');
+  num.innerHTML = "번호";
+  let country = document.createElement('th');
+  country.innerHTML = "국가명";
+  let capital = document.createElement('th');
+  capital.innerHTML = "수도명";
+*/
+  for(let i =0;i< arr.length;i++){
+
+    if(Number(arr[i])===1){
+        resultName2.innerHTML += answerSheet[i].name + " - " +answerSheet[i].capital+" O<br/>";
+    }else{
+      resultName2.innerHTML += answerSheet[i].name + " - " +answerSheet[i].capital+" X<br/>";
+    }
+
+  }
+}
+
 function calResult(){ //점수합산
   var sum=0;
   for(let i =0;i< arr.length;i++){
@@ -15,7 +45,8 @@ function calResult(){ //점수합산
 function setResult(){
   let point = calResult();
   const resultName = document.querySelector('.resultname');
-  resultName.innerHTML = Math.floor((point/arr.length)*100) +'점';
+  resultName.innerHTML = Math.floor((point/arr.length)*100) + "점<br/>"
+  + "(정답 : " + point +"문제 / 전체 : " + arr.length +"문제)<br/>";
 }
 
 function goResult(){ //화면전환
@@ -71,6 +102,8 @@ function goNext(qIdx){
   for(let i in qList[qIdx].a){
     addAnswer(qList[qIdx].a[i].answer, qIdx, i);
   }
+  var status = document.querySelector('.statusBar'); //진행률
+  status.style.width = (100/endpoint) * (qIdx+1) + "%";
 }
 
 function begin(){
