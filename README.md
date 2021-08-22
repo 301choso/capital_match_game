@@ -4,4 +4,4 @@
 
 HTML, javascript, css 사용
 
-배포 : capitalmatchgame.netlify.app
+배포 : https://capitalmatchgame.netlify.app
